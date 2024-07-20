@@ -39,7 +39,16 @@ class TaskTableViewCell: UITableViewCell {
         titleHeadingLabel.text = "Title:"
         priorityHeadingLabel.text = "Priority:"
         dueDateHeadingLabel.text = "Due Date:"
-
+        
+        titleHeadingLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        priorityHeadingLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        dueDateHeadingLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        
+        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        priorityLabel.font = UIFont.systemFont(ofSize: 15)
+        dueDateLabel.font = UIFont.systemFont(ofSize: 15)
+        
+        
         titleHeadingLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         priorityHeadingLabel.translatesAutoresizingMaskIntoConstraints = false

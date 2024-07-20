@@ -19,7 +19,7 @@ protocol ErrorShowable {
 protocol Loadable {
     var isLoading: Bool { get set }
 }
-
+	
 
 final class AllTasksViewModel: ObservableObject,Loadable {
     @Published var tasks: [ToDoTask] = []
@@ -146,22 +146,6 @@ final class AllTasksViewModel: ObservableObject,Loadable {
     private func postTasksUpdatedNotification() {
         NotificationCenter.default.post(name: .tasksUpdated, object: nil)
     }
-    
-    private func bindWeatherService() {
-        $weatherDescription
-            .combineLatest($temperature, $locationName)
-            .sink { [weak self] description, temperature, locationName in
-                self?.weatherDescription = description
-                self?.temperature = temperature
-                self?.locationName = locationName
-            }
-            .store(in: &cancellables)
-    }
-
-    
-//    func fetchWeather() {
-//            weatherService.fetchWeather(for: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194)) // Example coordinates, you may want to update it based on your needs
-//        }
 }
 
 enum SortCriteria {
@@ -173,7 +157,6 @@ enum SortCriteria {
 
 extension AllTasksViewModel {
     func getWeatherForecasteData(req: WeatherRequest, onCompletion:@escaping(NetworkResponse)->(Void))     {
-        
         weatherForecastService.getWeatherForecastData(req)
         
             .receive(on: RunLoop.main)
@@ -191,11 +174,16 @@ extension AllTasksViewModel {
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-            }) { weatherdata in
-                //                print("activeBusiness: \(activeBusiness)")
-                
-                onCompletion(weatherdata)
-                
+            }) { NetworkResponse in
+            
+                onCompletion(NetworkResponse)
+                DispatchQueue.main.async {
+                    print(NetworkResponse)
+                    self.locationName = NetworkResponse.location.name
+                    self.weatherDescription = NetworkResponse.current.condition.text
+                    self.temperature = NetworkResponse.current.temp_c
+             
+                }
             }
             .store(in: &subscriptions)
     }

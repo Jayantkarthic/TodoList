@@ -15,8 +15,8 @@ final class WeatherForecastWebRequestFactory {
 
      
         WeatherForecastRequest.query = [URLQueryItem(name: "key", value: "6f50f2192be14e3eb76171618241001"),
-                                        URLQueryItem(name: "q", value: "\(Payload.q),\(Payload.q)"),
-                                        URLQueryItem(name: "aqi", value: "NO")]
+                                        URLQueryItem(name: "q", value: "\(Payload.q)"),
+                                        URLQueryItem(name: "aqi", value: "no")]
         
         return WeatherForecastRequest
     }

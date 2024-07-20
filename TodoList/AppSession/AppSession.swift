@@ -12,20 +12,28 @@ class AppSession {
 
     private init() {}
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     func start(in window: UIWindow?) {
         window?.rootViewController = createTabBarController()
+        window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
     }
 
     private func createTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
 
-        let allTasksVC = AllTasksViewController()
-        let allTasksNav = UINavigationController(rootViewController: allTasksVC)
+        let allTasksViewController = AllTasksViewController()
+        let allTasksViewModel = AllTasksViewModel(context: context)
+        allTasksViewController.viewModel = allTasksViewModel
+
+        let completedTasksViewController = CompletedTasksViewController()
+        completedTasksViewController.viewModel = allTasksViewModel
+
+        let allTasksNav = UINavigationController(rootViewController: allTasksViewController)
         allTasksNav.tabBarItem = UITabBarItem(title: "All Tasks", image: UIImage(systemName: "list.bullet"), tag: 0)
 
-        let completedTasksVC = CompletedTasksViewController()
-        let completedTasksNav = UINavigationController(rootViewController: completedTasksVC)
+        let completedTasksNav = UINavigationController(rootViewController: completedTasksViewController)
         completedTasksNav.tabBarItem = UITabBarItem(title: "Completed Tasks", image: UIImage(systemName: "checkmark.circle"), tag: 1)
 
         tabBarController.viewControllers = [allTasksNav, completedTasksNav]
@@ -34,10 +42,7 @@ class AppSession {
     }
 }
 
-
-
 extension UITabBarController {
-
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 

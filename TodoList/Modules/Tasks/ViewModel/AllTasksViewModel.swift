@@ -118,7 +118,7 @@ final class AllTasksViewModel: ObservableObject,Loadable {
         case .dueDate:
             filteredTasks.sort { $0.dueDate ?? Date() < $1.dueDate ?? Date() }
         case .priority:
-            filteredTasks.sort { $0.priority ?? "" < $1.priority ?? "" }
+            filteredTasks.sort { $0.priorityValue < $1.priorityValue }
         }
     }
     
@@ -186,5 +186,19 @@ extension AllTasksViewModel {
                 }
             }
             .store(in: &subscriptions)
+    }
+}
+extension ToDoTask {
+    var priorityValue: Int {
+        switch priority {
+        case "High":
+            return 1
+        case "Medium":
+            return 2
+        case "Low":
+            return 3
+        default:
+            return 0
+        }
     }
 }

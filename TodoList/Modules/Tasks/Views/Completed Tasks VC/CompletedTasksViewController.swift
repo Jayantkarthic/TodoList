@@ -32,6 +32,11 @@ class CompletedTasksViewController: UIViewController {
         setupTapGesture()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadCompletedTasks()
+        bindViewModel()
+    }
+    
     private func setupUI() {
         view.backgroundColor = .white
         navigationItem.title = "Completed Tasks"

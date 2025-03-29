@@ -73,6 +73,7 @@
 		56A80A792C48C3EC0058A80A /* WeatherForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A80A782C48C3EC0058A80A /* WeatherForecastService.swift */; };
 		56E0EC7C2C4B118C00A32E49 /* AttachmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0EC7B2C4B118C00A32E49 /* AttachmentTableViewCell.swift */; };
 		56E0EC7E2C4B11B100A32E49 /* TaskDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0EC7D2C4B11B100A32E49 /* TaskDetailHeaderView.swift */; };
+		56E0EC802C4C135500A32E49 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0EC7F2C4C135500A32E49 /* LaunchScreenViewController.swift */; };
 		56EE60782C486D6B0084AA0C /* TaskHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EE60772C486D6B0084AA0C /* TaskHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,7 @@
 		56A80A782C48C3EC0058A80A /* WeatherForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastService.swift; sourceTree = "<group>"; };
 		56E0EC7B2C4B118C00A32E49 /* AttachmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentTableViewCell.swift; sourceTree = "<group>"; };
 		56E0EC7D2C4B11B100A32E49 /* TaskDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailHeaderView.swift; sourceTree = "<group>"; };
+		56E0EC7F2C4C135500A32E49 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		56EE60772C486D6B0084AA0C /* TaskHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,6 +321,7 @@
 				5633AE692C48AF0600E5CADE /* Common */,
 				5633AE6A2C48AF3000E5CADE /* Assets */,
 				56A4D65A2C4617E000EF64FB /* Info.plist */,
+				56E0EC7F2C4C135500A32E49 /* LaunchScreenViewController.swift */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				56A80A702C48C1B50058A80A /* Request.swift in Sources */,
 				5633AE462C48AD5100E5CADE /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				5633AE552C48AD5100E5CADE /* NVActivityIndicatorAnimationBlank.swift in Sources */,
+				56E0EC802C4C135500A32E49 /* LaunchScreenViewController.swift in Sources */,
 				5633AE4D2C48AD5100E5CADE /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				56A4D66F2C4618AE00EF64FB /* AllTasksViewController.swift in Sources */,
 				56A4D66B2C46188C00EF64FB /* TaskDetailViewController.swift in Sources */,
